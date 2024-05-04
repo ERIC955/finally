@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    header{
+        width: 100%;
+        height: 100px;
+        background-color: rgb(194, 194, 194);
+    }
+    footer{
+        width: 100%;
+        height: 200px;
+        background-color: rgb(194, 194, 194);
+        ;
+    } 
+    a{
+        color: rgb(69, 73, 57);
+    }
+    a:hover{
+        color: rgb(69, 73, 57);
+        opacity: 0.7;
+    }
+    .sticky-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; }
+    .modal{
+        display: none;
+        top: -1000px;
+        width: 400px;
+        height: 500px;
+    }
+    .loginmodal{
+        display: none;
+        top: -1000px;
+        width: 400px;
+        height: 450px;
+    }
+    .siginmodal{
+        display: none;
+        top: -1000px;
+        width: 400px;
+        height: 450px;
+    }
+    .siged{
+        display: none;
+        top: -1000px;
+        width: 400px;
+        height: 450px;
+    }
+    .cartmodel{
+        display: none;
+        bottom: -1000px;
+        width: 600px;
+        height: 550px;
+    }
+    .personImg{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .searchmodal{
+        display: none;
+        opacity: 0;
+        width: 1000px;
+        height: 650px;
+    }
+    .questionmodal{
+        display: none;
+        opacity: 0;
+        width: 1000px;
+        height: 350px;
+    }
+    /* .messengermodal{
+        display: none;
+        bottom: -1000px;
+        width: 600px;
+        height: 350px;
+    } */
+    .colth{
+        width: 400px;
+        height: 300px;
+        object-fit: cover;
+    }
+    
+</style>
+<body>
+    <header>
+        <div class="d-flex justify-content-between align-items-center h-100 px-2">
+            <h1 class="display-5 fw-bold ">logo</h1>
+            <div class="d-flex justify-content-between   " style="width: 320px; ">
+                <a id="person"  href=""><i class="bi bi-person-circle display-5 "></i></a>
+                <a href=""><i class="bi bi-cart display-5 cart"></i></a>
+                <div class="position-relative ">
+                    <a href=""><i class="bi bi-search display-6 position-absolute" style="top:5px;left:5px"></i></a>
+                    <input class="ps-5 fs-3  h-100 form-control search" type="text" style="width:200px;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="modal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex justify-content-center mt-2">
+            <img class="personImg" src="/19494224bbeea1f5988c728006601d59.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-center mt-5 px-5">
+            <label for="mail" class="text-nowrap fs-5 me-1">郵件 </label>
+            <input type="text" id="mail" class="form-control" placeholder="郵件">
+        </div>
+        <div class="d-flex justify-content-center mt-2 px-5">
+            <label for="password" class="text-nowrap fs-5 me-1 ">密碼 </label>
+            <input type="password" id="password" class="form-control" placeholder="密碼">
+        </div>
+        <div class="d-flex justify-content-center mt-5 px-5">
+            <button class="btn btn-primary mx-1 login">登入</button>
+            <button class="btn btn-danger mx-1 sigin">註冊</button>
+        </div>
+    </div>
+
+    <div class="loginmodal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex justify-content-center mt-5">
+            <img class="personImg" src="/19494224bbeea1f5988c728006601d59.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <h3>歡迎！！！</h3>
+        </div>
+    </div>
+
+    <div class="siginmodal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex justify-content-center mt-5">
+            <i class="bi bi-file-person-fill display-4 "></i>
+        </div>
+        <div class="d-flex justify-content-center mt-5 px-5">
+            <label for="name" class="text-nowrap fs-5 me-1">姓名</label>
+            <input type="text" id="name" class="form-control" placeholder="姓名">
+        </div>
+        <div class="d-flex justify-content-center mt-2 px-5">
+            <label for="mail" class="text-nowrap fs-5 me-1">郵件 </label>
+            <input type="text" id="mail" class="form-control" placeholder="郵件">
+        </div>
+        <div class="d-flex justify-content-center mt-2 px-5">
+            <label for="password" class="text-nowrap fs-5 me-1 ">密碼 </label>
+            <input type="password" id="password" class="form-control" placeholder="密碼">
+        </div>
+        <div class="d-flex justify-content-center mt-5 px-5">
+            <button class="btn btn-danger mx-1  sig">註冊</button>
+        </div>
+    </div>
+
+    <div class="siged">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex justify-content-center mt-5">
+            <img class="personImg" src="/19494224bbeea1f5988c728006601d59.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <h3>成功！！！</h3>
+        </div>
+    </div>
+
+    <div class="cartmodel">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex  justify-content-center mt-5 px-3"> 
+            <img class="colth" src="/P1690803315983_3_29599325.jpeg" alt="">
+        </div>
+        <div class="d-flex justify-content-center mt-5 px-5">
+            <label for="name" class="text-nowrap fs-5 me-1">上衣</label>
+        </div>        
+        <div class="d-flex justify-content-end mt-4  px-5">
+            <button type="button" class="btn btn-dark fs-5   mx-1" id="liveToastBtn">購買</button>
+        </div>
+    </div>
+
+    <div class="toast-container">
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買這樣產品 希望你喜歡
+              </div>
+            </div>
+        </div>
+    
+        <div  class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買時髦短Ｔ 希望你喜歡
+              </div>
+            </div>
+        </div>
+    
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast3" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買CUSTOM T-shirt 希望你喜歡
+              </div>
+            </div>
+        </div>
+    
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買時髦短Ｔ 希望你喜歡
+              </div>
+            </div>
+        </div>
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast5" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買運動素Ｔ 希望你喜歡
+              </div>
+            </div>
+        </div>
+    
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast6" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買一件式潮Ｔ 希望你喜歡
+              </div>
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast7" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買羽絨外套 希望你喜歡
+              </div>
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast8" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買帽Ｔ 希望你喜歡
+              </div>
+            </div>
+        </div>
+
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast9" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝下單！！</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                感謝你購買綠色大學Ｔ 希望你喜歡
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchmodal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex justify-content-center">
+            <p class="fs-3 text-white ">搜尋結果</p>
+        </div>
+        <div class="d-flex justify-content-between px-5">
+            <div class="card" style="width: 25rem;">
+                <img src="/images.jpeg" class="card-img-top" alt="..." style="height: 350px;"> 
+                <div class="card-body">
+                    <h5 class="card-title">超時髦藍T</h5>
+                    <p class="card-text">各種尺寸 歡迎下單</p>
+                    <button class="btn btn-primary" id="liveToastBtn2">立即購買</button>
+                </div>
+            </div>
+            <div class="card" style="width: 25rem;">
+                <img src="/HideThePainHarold-CustomDesign-Mockup_2e627725-7d34-43d5-ac86-f5c66a684cf6.webp" class="card-img-top" alt="..." style="height: 350px;"> 
+                <div class="card-body">
+                    <h5 class="card-title">CUSTOM T-shirt</h5>
+                    <p class="card-text">over-size非常好看</p>
+                    <a href="#" class="btn btn-primary"id="liveToastBtn3">立即購買</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="questionmodal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="accordion accordion-flush mt-5" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  如何購買
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">直接按下購買鍵就可以購買</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  如何付款
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">請到超商貨到付款</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                  如何退貨
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">不提供退貨</div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="messengermodal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+    </div>
+
+    <div id="main">
+        <div class="sticky-navbar">
+            <div class="d-flex justify-content-center" style="background-color: #d0ac9b;"> 
+                <div class="d-flex justify-content-between " style="width: 300px;">
+                    <a class="fs-3 text-black text-decoration-none " href="">衣服</a>
+                    <a class="fs-3 text-black text-decoration-none " href="">褲子</a>
+                    <a class="fs-3 text-black text-decoration-none " href="">外套</a>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <img class="w-100 " src="/fashionstore1-img-knwl20190123.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-center " style="margin: 50px 0;">
+            <div style="background-color: antiquewhite; border-radius: 50%; height: 50px; width: 200px;">
+                <h2 class="d-flex  justify-content-center mt-1 ">熱銷商品</h2>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between " style="padding: 0 150px; ">
+            <div class="card" style="width: 25rem;">
+                <img src="/images.jpeg" class="card-img-top" alt="..." style="height: 350px;"> 
+                <div class="card-body">
+                    <h5 class="card-title">超時髦藍T</h5>
+                    <p class="card-text">各種尺寸 歡迎下單</p>
+                    <button class="btn btn-primary" id="liveToastBtn4">立即購買</button>
+                </div>
+            </div>
+    
+            <div class="card" style="width: 25rem;">
+                <img src="/55.jpeg" class="card-img-top" alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">運動素T</h5>
+                    <p class="card-text">超會排汗 趕快下單</p>
+                    <button class="btn btn-primary" id="liveToastBtn5">立即購買</button>
+                </div>
+            </div>
+    
+            <div class="card" style="width: 25rem;">
+                <img src="/06224428433-a1.jpg" class="card-img-top " alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">一件式潮Ｔ</h5>
+                    <p class="card-text">假兩件 夏天不會熱 冬天不會冷</p>
+                    <button class="btn btn-primary" id="liveToastBtn6">立即購買</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center " style="margin: 50px 0;">
+            <button class="btn fs-3 my-3 " style="background-color:  rgb(194, 194, 194);"> 查看更多</button>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-center " style="margin: 50px 0;">
+            <div style="background-color: rgb(209, 148, 126); border-radius: 10%; height: 50px; width: 200px;">
+                <h2 class="d-flex  justify-content-center mt-1 ">本週新品</h2>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between " style="padding: 0 150px; ">
+            <div class="card" style="width: 25rem;">
+                <img src="/3.jpg" class="card-img-top" alt="..." style="height: 350px;"> 
+                <div class="card-body">
+                    <h5 class="card-title">羽絨外套</h5>
+                    <p class="card-text">超級保暖</p>
+                    <button class="btn btn-primary" id="liveToastBtn7">立即購買</button>
+                </div>
+            </div>
+    
+            <div class="card" style="width: 25rem;">
+                <img src="/FFBF20C669256DC7B65E6FF618BC2D33.jpg" class="card-img-top" alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">帽Ｔ</h5>
+                    <p class="card-text">加大版 size齊全</p>
+                    <button class="btn btn-primary" id="liveToastBtn8">立即購買</button>
+                </div>
+            </div>
+    
+            <div class="card" style="width: 25rem;">
+                <img src="/497482A12E-SP-10688384.jpg" class="card-img-top " alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">綠色大學Ｔ</h5>
+                    <p class="card-text">oversize 超好搭配</p>
+                    <button class="btn btn-primary" id="liveToastBtn9">立即購買</button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center " style="margin: 50px 0;">
+            <button class="btn fs-3 my-3 " style="background-color:  rgb(194, 194, 194);"> 查看更多</button>
+        </div>
+    </div>
+
+
+    <footer class="d-flex align-items-center justify-content-between ">
+        <div class="d-flex flex-column ms-3 ">
+            <div class="d-flex align-items-center ">
+                <i class="bi bi-question-circle-fill display-6"></i>
+                <a class="fs-3 ms-2 question" href="">常見問題</a>
+            </div>
+            <div class="d-flex align-items-center ">
+                <i class="bi bi-chat-dots-fill display-6  "></i>
+                <a class="fs-3 ms-2" href="">聯絡我們</a>
+            </div>
+            <div class="d-flex align-items-center ">
+                <i class="bi bi-map-fill display-6 "></i>
+                <a class="fs-3 ms-2" href="">關於我們</a>
+            </div>
+        </div>
+        <div>
+            <i class="bi bi-facebook display-6 mx-2 "></i>
+            <i class="bi bi-instagram display-6 mx-2 "></i>
+            <i class="bi bi-threads-fill display-6 mx-2 "></i>
+        </div>
+        <div class="" style="margin-right: 90px;">
+            <h1 class="display-5">logo</h1>
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+
+        var modalHeight = $(".modal").outerHeight();
+        var modalWidth = $(".modal").outerWidth();
+        var carth = $('.cartmodel').outerHeight();
+        var cartw = $('.cartmodel').outerWidth();
+        var serchh = $('.searchmodal').outerHeight();
+        var serchw = $('.searchmodal').outerWidth();
+
+        var topPosition = (windowHeight - modalHeight) / 2;
+        var leftPosition = (windowWidth - modalWidth) / 2;
+
+        var topcart = (windowHeight - carth) / 2;
+        var leftcart = (windowWidth - cartw) / 2;
+
+        var topserch = (windowHeight - serchh) / 2;
+        var leftserch = (windowWidth - serchw) / 2;
+        $("a").click((event)=>{
+            event.preventDefault();
+        });
+
+        $("#person").click(()=>{
+            $("body").css("overflow-y", "hidden");
+            $(".modal").css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "opacity": "1",
+                "background-color": "white",
+                "left": leftPosition + "px"
+            }).stop().animate({ top: topPosition + "px" }, 1000, "linear");
+            $("#main").css("opacity", "0.2");
+            setTimeout(()=>{
+                $(".x").click(function(event) {
+                $(".modal").css({
+                    "display": "none",
+                    "top": "-1000px",
+                    "width": "400px",
+                    "height": "500px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+                
+                });
+            }, 1000)
+        })
+
+        $('.login').click(()=>{
+            $('.modal').stop().animate({opacity: 0}, 1000, "linear")   
+            setTimeout(()=>{
+                $('.loginmodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "opacity": "1",
+                "background-color": "white",
+                "left": leftPosition + "px"
+            }).stop().animate({ top: topPosition + "px" }, 1000, "linear");
+            }, 500)
+            setTimeout(()=>{
+                $(".loginmodal").css({
+                    "display": "none",
+                    "top": "-1000px",
+                    "width": "400px",
+                    "height": "450px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+            }, 4000)
+        })
+
+        $('.sigin').click(()=>{
+            $('.modal').stop().animate({opacity: 0}, 1000, "linear")   
+            setTimeout(()=>{
+                $('.siginmodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "opacity": "1",
+                "background-color": "white",
+                "left": leftPosition + "px"
+            }).stop().animate({ top: topPosition + "px" }, 1000, "linear");
+            }, 500)
+            setTimeout(()=>{
+                $(".x").click(function(event) {
+                $(".siginmodal").css({
+                    "display": "none",
+                    "top": "-1000px",
+                    "width": "400px",
+                    "height": "450px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+                
+                });
+            }, 1000)
+        })
+
+        $('.sig').click(()=>{
+            $('.siged').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "opacity": "1",
+                "background-color": "white",
+                "left": leftPosition + "px"
+            }).stop().animate({ top: topPosition + "px" }, 1000, "linear");
+            $('.siginmodal').css("display", "none")
+            setTimeout(()=>{
+                $(".siged").css({
+                    "display": "none",
+                    "top": "-1000px",
+                    "width": "400px",
+                    "height": "450px",
+                })
+                $(".siginmodal").css({
+                    "display": "none",
+                    "top": "-1000px",
+                    "width": "400px",
+                    "height": "450px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+            }, 4000)
+        })
+
+        $('.cart').click(()=>{
+            $("body").css("overflow-y", "hidden");
+            $('.cartmodel').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "opacity": "1",
+                "background-color": "white",
+                "left": leftcart + "px"
+            }).stop().animate({ bottom: topPosition + "px" }, { 
+                duration: 1000,
+                easing: "easeOutBounce"
+            });
+            $("#main").css("opacity", "0.2");
+            setTimeout(()=>{
+                $(".x").click(function(event) {
+                $(".cartmodel").css({
+                    "display": "none",
+                    "bottom": "-1000px",
+                    "width": "600px",
+                    "height": "550px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+                
+                });
+            }, 1000)
+        })
+
+        $('#liveToastBtn').click(function() {
+                $(".cartmodel").css({
+                    "display": "none",
+                    "bottom": "-1000px",
+                    "width": "600px",
+                    "height": "550px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+                
+            var toast = new bootstrap.Toast($('#liveToast'))
+            toast.show()
+        })
+        $('#liveToastBtn2').click(function() {
+                $(".searchmodal").css({
+                    "display": "none",
+                    "bottom": "-1000px",
+                    "width": "600px",
+                    "height": "550px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+                
+            var toast = new bootstrap.Toast($('#liveToast2'))
+            toast.show()
+        })
+        $('#liveToastBtn3').click(function() {
+                $(".searchmodal").css({
+                    "display": "none",
+                    "bottom": "-1000px",
+                    "width": "600px",
+                    "height": "550px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+                
+            var toast = new bootstrap.Toast($('#liveToast3'))
+            toast.show()
+        })
+        $('#liveToastBtn4').click(function() {                
+            var toast = new bootstrap.Toast($('#liveToast4'))
+            toast.show()
+        })
+        $('#liveToastBtn5').click(function() {                
+            var toast = new bootstrap.Toast($('#liveToast5'))
+            toast.show()
+        })
+        $('#liveToastBtn6').click(function() {                
+            var toast = new bootstrap.Toast($('#liveToast6'))
+            toast.show()
+        })
+        $('#liveToastBtn7').click(function() {                
+            var toast = new bootstrap.Toast($('#liveToast7'))
+            toast.show()
+        })
+        $('#liveToastBtn8').click(function() {                
+            var toast = new bootstrap.Toast($('#liveToast8'))
+            toast.show()
+        })
+        $('#liveToastBtn9').click(function() {                
+            var toast = new bootstrap.Toast($('#liveToast9'))
+            toast.show()
+        })
+
+
+        $('.search').keydown((event) => {
+            if (event.keyCode === 13) {
+                $('.search').val("");
+                $("body").css("overflow-y", "hidden");
+                $('.searchmodal').css({
+                    "position": "absolute",
+                    "z-index": "9999",
+                    "display": "block",
+                    "background-color": "gray",
+                    "left": leftserch + "px"
+                }).stop().animate({ opacity:1 }, 1000, "linear");
+                $("#main").css("opacity", "0.2");
+                setTimeout(()=>{
+                    $(".x").click(function(event) {
+                    $(".searchmodal").css({
+                        "display": "none",
+                        "width": "1000px",
+                        "height": "650px",
+                    }).stop().animate({ opacity:0 }, 1000, "linear");
+                    $("body").css("overflow-y", "auto");
+                    $("#main").css("opacity", "1");
+                    
+                    });
+                }, 1000)
+            }
+        });
+
+        $('.question').click(()=>{     
+            $('.questionmodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "background-color": "white",
+                "top": "2500px",
+                "left": leftserch + "px"
+            }).stop().animate({ opacity:1 }, 1000, "linear");
+            $("#main").css("opacity", "0.2");
+            setTimeout(()=>{
+                    $(".x").click(function(event) {
+                    $(".questionmodal").css({
+                        "display": "none",
+                        "width": "1000px",
+                        "height": "350px",
+                    }).stop().animate({ opacity:0 }, 1000, "linear");
+                    $("body").css("overflow-y", "auto");
+                    $("#main").css("opacity", "1");
+                    
+                    });
+                }, 1000)
+        });
+    })
+</script>
+</html>
