@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <style>
     *{
@@ -71,6 +71,11 @@
         border-radius: 50%;
         object-fit: cover;
     }
+    .noImg{
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+    }
     .searchmodal{
         display: none;
         opacity: 0;
@@ -79,21 +84,58 @@
     }
     .questionmodal{
         display: none;
-        opacity: 0;
+        top: -1000px;
         width: 1000px;
         height: 350px;
     }
-    /* .messengermodal{
+    .messengermodal{
         display: none;
-        bottom: -1000px;
+        top: -1000px;
         width: 600px;
         height: 350px;
-    } */
+    }
+    .datamodal{
+        display: none;
+        top: -1000px;
+        width: 600px;
+        height: 350px;
+    }
+    .nomodal{
+        display: none;
+        top: -1000px;
+        width: 400px;
+        height: 450px;
+    }
+
+
+.clothmodal {
+    display: none;
+    opacity: 0;
+    width: 1000px;
+    height: 550px;
+    margin-top: 100px;
+}
     .colth{
         width: 400px;
         height: 300px;
         object-fit: cover;
     }
+    .custom-card {
+    flex: 0 0 auto; 
+    width: 20rem;   
+    margin:0 10px; 
+    }
+
+    .custom-card-container {
+    overflow-x: auto; 
+    overflow-y:hidden;
+    flex-wrap: nowrap; 
+    padding-bottom: 20px; 
+    display: flex;
+}
+.custom-card-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
     
 </style>
 <body>
@@ -110,8 +152,6 @@
             </div>
         </div>
     </header>
-
-
 
     <div class="modal">
         <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
@@ -182,8 +222,8 @@
         <div class="d-flex justify-content-center mt-5 px-5">
             <label for="name" class="text-nowrap fs-5 me-1">上衣</label>
         </div>        
-        <div class="d-flex justify-content-end mt-4  px-5">
-            <button type="button" class="btn btn-dark fs-5   mx-1" id="liveToastBtn">購買</button>
+        <div class="d-flex justify-content-center mt-4  px-5">
+            <button type="button" class="btn btn-dark fs-5   mx-1" id="liveToastBtn">加入購物車</button>
         </div>
     </div>
 
@@ -191,11 +231,11 @@
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買這樣產品 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
@@ -203,11 +243,11 @@
         <div  class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買時髦短Ｔ 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
@@ -215,11 +255,11 @@
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast3" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買CUSTOM T-shirt 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
@@ -227,22 +267,22 @@
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買時髦短Ｔ 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast5" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買運動素Ｔ 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
@@ -250,11 +290,11 @@
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast6" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買一件式潮Ｔ 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
@@ -262,11 +302,11 @@
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast7" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買羽絨外套 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
@@ -274,11 +314,11 @@
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast8" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買帽Ｔ 希望你喜歡
+                你的商品已加入購物車
               </div>
             </div>
         </div>
@@ -287,11 +327,23 @@
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
             <div id="liveToast9" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
-                <strong class="me-auto">感謝下單！！</strong>
+                <strong class="me-auto">感謝加入購物車！！</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
               </div>
               <div class="toast-body">
-                感謝你購買綠色大學Ｔ 希望你喜歡
+                你的商品已加入購物車
+              </div>
+            </div>
+        </div>
+
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="liveToast10" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">感謝你的聯繫</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                我們盡快為你服務
               </div>
             </div>
         </div>
@@ -360,15 +412,101 @@
 
     <div class="messengermodal">
         <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex justify-content-center mt-4">
+            <textarea name="" id="" style="width: 400px; height: 200px;"></textarea>
+        </div>
+        <div class="d-flex justify-content-end mt-4  px-5">
+            <button type="button" class="btn btn-dark fs-5   mx-1" id="liveToastBtn10">送出</button>
+        </div>
+    </div>
+
+    <div class="clothmodal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex overflow-x-scroll custom-card-container" onmousedown="startDrag(event)" onmouseup="endDrag()" style="max-width: 100%;">
+            <div class="card custom-card" style="width: 20rem;">
+                <img src="/3.jpg" class="card-img-top" alt="..." style="height: 350px;"> 
+                <div class="card-body">
+                    <h5 class="card-title">羽絨外套</h5>
+                    <p class="card-text">超級保暖</p>
+                    <button class="btn btn-primary">立即購買</button>
+                </div>
+            </div>
+            <div class="card custom-card" style="width: 20rem;">
+                <img src="/497482A12E-SP-10688384.jpg" class="card-img-top " alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">綠色大學Ｔ</h5>
+                    <p class="card-text">oversize 超好搭配</p>
+                    <button class="btn btn-primary">立即購買</button>
+                </div>
+            </div>
+
+            <div class="card custom-card" style="width: 20rem;">
+                <img src="/FFBF20C669256DC7B65E6FF618BC2D33.jpg" class="card-img-top" alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">帽Ｔ</h5>
+                    <p class="card-text">加大版 size齊全</p>
+                    <button class="btn btn-primary">立即購買</button>
+                </div>
+            </div>
+            <div class="card custom-card" style="width: 20rem;">
+                <img src="/images.jpeg" class="card-img-top" alt="..." style="height: 350px;"> 
+                <div class="card-body">
+                    <h5 class="card-title">超時髦藍T</h5>
+                    <p class="card-text">各種尺寸 歡迎下單</p>
+                    <button class="btn btn-primary">立即購買</button>
+                </div>
+            </div>
+    
+            <div class="card custom-card" style="width: 20rem;">
+                <img src="/55.jpeg" class="card-img-top" alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">運動素T</h5>
+                    <p class="card-text">超會排汗 趕快下單</p>
+                    <button class="btn btn-primary">立即購買</button>
+                </div>
+            </div>
+    
+            <div class="card custom-card" style="width: 20rem;">
+                <img src="/06224428433-a1.jpg" class="card-img-top " alt="..." style="height: 350px;">
+                <div class="card-body">
+                    <h5 class="card-title">一件式潮Ｔ</h5>
+                    <p class="card-text">假兩件 夏天不會熱 冬天不會冷</p>
+                    <button class="btn btn-primary">立即購買</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="datamodal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
+        <div class="d-flex justify-content-start mt-4 ">
+            <h5 class="text-nowrap">品牌故事:</h5><div class="px-3">在一個小鎮上，有一位叫做艾莉的女孩，她總是對衣服有著特別的眼光。她認為，衣服不僅僅是一種外在的裝飾，更是表達自己的方式。然而，她發現在當地的商店裡，大多數衣服都很相似，缺乏個性。於是，她開始動手做衣服，並從各處收集布料和設計靈感。她用心設計，讓每一件衣服都能夠展現出獨特的風格和品味。她的朋友們對她的設計非常喜歡，紛紛向她訂購</div>
+        </div>
+        <div class="d-flex justify-content-start mt-4 ">
+            <h5 class="text-nowrap">電話:</h5><div class="px-3">0911222333</div>
+        </div>
+        <div class="d-flex justify-content-start mt-4 ">
+            <h5 class="text-nowrap">地址:</h5><div class="px-3">台北市信義區松壽路18號</div>
+        </div>
+    </div>
+
+    <div class="nomodal">
+        <div class="d-flex justify-content-center mt-5">
+            <img class="noImg" src="/images.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <h3>抱歉！！！目前缺貨</h3>
+        </div>
     </div>
 
     <div id="main">
         <div class="sticky-navbar">
             <div class="d-flex justify-content-center" style="background-color: #d0ac9b;"> 
                 <div class="d-flex justify-content-between " style="width: 300px;">
-                    <a class="fs-3 text-black text-decoration-none " href="">衣服</a>
-                    <a class="fs-3 text-black text-decoration-none " href="">褲子</a>
-                    <a class="fs-3 text-black text-decoration-none " href="">外套</a>
+                    <a class="fs-3 text-black text-decoration-none cloth" href="">衣服</a>
+                    <a class="fs-3 text-black text-decoration-none no" href="">褲子</a>
+                    <a class="fs-3 text-black text-decoration-none no" href="">外套</a>
                 </div>
             </div>
         </div>
@@ -386,7 +524,7 @@
                 <div class="card-body">
                     <h5 class="card-title">超時髦藍T</h5>
                     <p class="card-text">各種尺寸 歡迎下單</p>
-                    <button class="btn btn-primary" id="liveToastBtn4">立即購買</button>
+                    <button class="btn btn-primary" id="liveToastBtn4">加入購物車</button>
                 </div>
             </div>
     
@@ -395,7 +533,7 @@
                 <div class="card-body">
                     <h5 class="card-title">運動素T</h5>
                     <p class="card-text">超會排汗 趕快下單</p>
-                    <button class="btn btn-primary" id="liveToastBtn5">立即購買</button>
+                    <button class="btn btn-primary" id="liveToastBtn5">加入購物車</button>
                 </div>
             </div>
     
@@ -404,12 +542,12 @@
                 <div class="card-body">
                     <h5 class="card-title">一件式潮Ｔ</h5>
                     <p class="card-text">假兩件 夏天不會熱 冬天不會冷</p>
-                    <button class="btn btn-primary" id="liveToastBtn6">立即購買</button>
+                    <button class="btn btn-primary" id="liveToastBtn6">加入購物車</button>
                 </div>
             </div>
         </div>
         <div class="d-flex justify-content-center " style="margin: 50px 0;">
-            <button class="btn fs-3 my-3 " style="background-color:  rgb(194, 194, 194);"> 查看更多</button>
+            <button class="btn fs-3 my-3 mor" style="background-color:  rgb(194, 194, 194);"> 查看更多</button>
         </div>
         <hr>
         <div class="d-flex justify-content-center " style="margin: 50px 0;">
@@ -423,7 +561,7 @@
                 <div class="card-body">
                     <h5 class="card-title">羽絨外套</h5>
                     <p class="card-text">超級保暖</p>
-                    <button class="btn btn-primary" id="liveToastBtn7">立即購買</button>
+                    <button class="btn btn-primary" id="liveToastBtn7">加入購物車</button>
                 </div>
             </div>
     
@@ -432,7 +570,7 @@
                 <div class="card-body">
                     <h5 class="card-title">帽Ｔ</h5>
                     <p class="card-text">加大版 size齊全</p>
-                    <button class="btn btn-primary" id="liveToastBtn8">立即購買</button>
+                    <button class="btn btn-primary" id="liveToastBtn8">加入購物車</button>
                 </div>
             </div>
     
@@ -441,15 +579,14 @@
                 <div class="card-body">
                     <h5 class="card-title">綠色大學Ｔ</h5>
                     <p class="card-text">oversize 超好搭配</p>
-                    <button class="btn btn-primary" id="liveToastBtn9">立即購買</button>
+                    <button class="btn btn-primary" id="liveToastBtn9">加入購物車</button>
                 </div>
             </div>
         </div>
         <div class="d-flex justify-content-center " style="margin: 50px 0;">
-            <button class="btn fs-3 my-3 " style="background-color:  rgb(194, 194, 194);"> 查看更多</button>
+            <button class="btn fs-3 my-3 mor2" style="background-color:  rgb(194, 194, 194);"> 查看更多</button>
         </div>
     </div>
-
 
     <footer class="d-flex align-items-center justify-content-between ">
         <div class="d-flex flex-column ms-3 ">
@@ -459,11 +596,11 @@
             </div>
             <div class="d-flex align-items-center ">
                 <i class="bi bi-chat-dots-fill display-6  "></i>
-                <a class="fs-3 ms-2" href="">聯絡我們</a>
+                <a class="fs-3 ms-2 message" href="">聯絡我們</a>
             </div>
             <div class="d-flex align-items-center ">
                 <i class="bi bi-map-fill display-6 "></i>
-                <a class="fs-3 ms-2" href="">關於我們</a>
+                <a class="fs-3 ms-2 data" href="">關於我們</a>
             </div>
         </div>
         <div>
@@ -700,7 +837,19 @@
             var toast = new bootstrap.Toast($('#liveToast9'))
             toast.show()
         })
-
+        $('#liveToastBtn10').click(function() {       
+            $(".messengermodal").css({
+                            "display": "none",
+                            "top": "-1000px",
+                            "width": "600px",
+                            "height": "350px",
+                        })
+                        $("body").css("overflow-y", "auto");
+                        $("#main").css("opacity", "1");
+            
+            var toast = new bootstrap.Toast($('#liveToast10'))
+            toast.show()
+        })
 
         $('.search').keydown((event) => {
             if (event.keyCode === 13) {
@@ -729,29 +878,343 @@
             }
         });
 
-        $('.question').click(()=>{     
+        $('.question').click(() => {    
+            $("body").css("overflow-y", "hidden");       
             $('.questionmodal').css({
+                    "position": "absolute",
+                    "z-index": "9999",
+                    "display": "block",
+                    "opacity": "1",
+                    "background-color": "white",
+                    "left": leftserch + "px"
+                }).stop().animate({ top: topPosition + "px" }, { 
+                    duration: 2000,
+                    easing: "easeOutBounce"
+                });
+
+                $("#main").css("opacity", "0.2");
+            setTimeout(() => {
+                $('.questionmodal').focus(); 
+                $('.questionmodal')[0].scrollIntoView();
+            }, 100);
+     
+            $(".x").click(function(event) {
+                $(".questionmodal").css({
+                    "display": "none",
+                    "width": "1000px",
+                    "top": "-1000px",
+                    "height": "350px",
+                }).stop().animate({ opacity: 0 }, 1000, "linear");
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+            });
+        });
+
+        $('.message').click(()=>{     
+            $("body").css("overflow-y", "hidden");    
+            
+            $('.messengermodal').css({
                 "position": "absolute",
                 "z-index": "9999",
                 "display": "block",
+                "opacity": "1",
                 "background-color": "white",
-                "top": "2500px",
-                "left": leftserch + "px"
-            }).stop().animate({ opacity:1 }, 1000, "linear");
+                "left": leftcart + "px"
+            }).stop().animate({ top: topPosition + "px" }, { 
+                    duration: 2000,
+                    easing: "easeOutBounce"
+            });
             $("#main").css("opacity", "0.2");
-            setTimeout(()=>{
+            setTimeout(() => {
+                $('.messengermodal').focus(); 
+                $('.messengermodal')[0].scrollIntoView();
+            }, 100);
+            $(".x").click(function(event) {
+                        $(".messengermodal").css({
+                            "display": "none",
+                            "top": "-1000px",
+                            "width": "600px",
+                            "height": "350px",
+                        })
+                        $("body").css("overflow-y", "auto");
+                        $("#main").css("opacity", "1");
+                    });
+   
+            });
+
+        $('.data').click(()=>{
+            $("body").css("overflow-y", "hidden");
+            $('.datamodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "opacity": "1",
+                "background-color": "gray",
+                "left": leftcart + "px"
+            }).stop().animate({ top: topPosition + "px" }, { 
+                    duration: 2000,
+                    easing: "easeOutBounce"
+            });
+            $("#main").css("opacity", "0.2");
+            setTimeout(() => {
+                $('.datamodal').focus(); 
+                $('.datamodal')[0].scrollIntoView();
+            }, 100);
+            $(".x").click(function(event) {
+                        $(".datamodal").css({
+                            "display": "none",
+                            "top": "-1000px",   
+                            "width": "600px",
+                            "height": "350px",
+                        })
+                        $("body").css("overflow-y", "auto");
+                        $("#main").css("opacity", "1");
+                    });
+        })
+
+        $('.cloth').click(()=>{
+            $("body").css("overflow-y", "hidden");
+            $('.clothmodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "background-color": "wheat",
+                "left": leftserch + "px",
+            }).stop().animate({ opacity:1 }, 1000, "linear");
+            setTimeout(() => {
+                $('.clothmodal').focus(); 
+                $('.clothmodal')[0].scrollIntoView();
+            }, 100);
+            $("#main").css("opacity", "0.2");
+                setTimeout(()=>{
                     $(".x").click(function(event) {
-                    $(".questionmodal").css({
+                    $(".clothmodal").css({
                         "display": "none",
                         "width": "1000px",
-                        "height": "350px",
+                        "height": "550px",
                     }).stop().animate({ opacity:0 }, 1000, "linear");
                     $("body").css("overflow-y", "auto");
                     $("#main").css("opacity", "1");
                     
                     });
                 }, 1000)
-        });
     })
+
+
+        $('.mor2').click(()=>{
+            $("body").css("overflow-y", "hidden");
+            $('.clothmodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "background-color": "wheat",
+                "left": leftserch + "px",
+            }).stop().animate({ opacity:1 }, 1000, "linear");
+            setTimeout(() => {
+                $('.clothmodal').focus(); 
+                $('.clothmodal')[0].scrollIntoView();
+            }, 100);
+            $("#main").css("opacity", "0.2");
+                setTimeout(()=>{
+                    $(".x").click(function(event) {
+                    $(".clothmodal").css({
+                        "display": "none",
+                        "width": "1000px",
+                        "height": "550px",
+                    }).stop().animate({ opacity:0 }, 1000, "linear");
+                    $("body").css("overflow-y", "auto");
+                    $("#main").css("opacity", "1");
+                    
+                    });
+                }, 1000)
+        })
+
+        $('.mor2').click(()=>{
+            $("body").css("overflow-y", "hidden");
+            $('.clothmodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "background-color": "wheat",
+                "left": leftserch + "px",
+            }).stop().animate({ opacity:1 }, 1000, "linear");
+            setTimeout(() => {
+                $('.clothmodal').focus(); 
+                $('.clothmodal')[0].scrollIntoView();
+            }, 100);
+            $("#main").css("opacity", "0.2");
+                setTimeout(()=>{
+                    $(".x").click(function(event) {
+                    $(".clothmodal").css({
+                        "display": "none",
+                        "width": "1000px",
+                        "height": "550px",
+                    }).stop().animate({ opacity:0 }, 1000, "linear");
+                    $("body").css("overflow-y", "auto");
+                    $("#main").css("opacity", "1");
+                    
+                    });
+                }, 1000)
+        })
+
+        $('.no').click(()=>{
+            $("body").css("overflow-y", "hidden");
+            $("#main").css("opacity", "0.2");
+                $('.nomodal').css({
+                "position": "absolute",
+                "z-index": "9999",
+                "display": "block",
+                "opacity": "1",
+                "background-color": "white",
+                "left": leftPosition + "px"
+            }).stop().animate({ top: topPosition + "px" }, 1000, "linear");
+            setTimeout(() => {
+                $('.nomodal').focus(); 
+                $('.nomodal')[0].scrollIntoView();
+            }, 100);
+            setTimeout(()=>{
+                $(".nomodal").css({
+                    "display": "none",
+                    "top": "-1000px",
+                    "width": "400px",
+                    "height": "450px",
+                })
+                $("body").css("overflow-y", "auto");
+                $("#main").css("opacity", "1");
+            }, 4000)
+        })
+
+    })
+
+    let cartItems = []; // 購物車商品列表
+
+    // 加入購物車函數
+    function addToCart(productTitle, productImage) {
+        const item = { title: productTitle, image: productImage };
+        cartItems.push(item);
+        updateCart();
+    }
+
+    // 更新購物車顯示
+    function updateCart() {
+        const cartContainer = $(".cartmodel .d-flex.justify-content-center.mt-5.px-3");
+        cartContainer.empty();
+        cartItems.forEach(item => {
+            const cartItemHTML = `
+                <div class="d-flex align-items-center mb-3">
+                    <img src="${item.image}" class="colth me-3" alt="${item.title}">
+                    <div>
+                        <h5>${item.title}</h5>
+                    </div>
+                </div>
+            `;
+            cartContainer.append(cartItemHTML);
+        });
+    }
+
+    $(document).ready(function(){
+        $('#liveToastBtn').click(function() {
+            const productTitle = '上衣';
+            const productImage = '/P1690803315983_3_29599325.jpeg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast'));
+            toast.show();
+        });
+
+        $('#liveToastBtn2').click(function() {
+            const productTitle = '超時髦藍T';
+            const productImage = '/images.jpeg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast2'));
+            toast.show();
+        });
+
+        $('#liveToastBtn3').click(function() {
+            const productTitle = 'CUSTOM T-shirt';
+            const productImage = '/HideThePainHarold-CustomDesign-Mockup_2e627725-7d34-43d5-ac86-f5c66a684cf6.webp';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast3'));
+            toast.show();
+        });
+
+        $('#liveToastBtn4').click(function() {
+            const productTitle = '超時髦藍T';
+            const productImage = '/images.jpeg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast4'));
+            toast.show();
+        });
+
+        $('#liveToastBtn5').click(function() {
+            const productTitle = '運動素T';
+            const productImage = '/55.jpeg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast5'));
+            toast.show();
+        });
+
+        $('#liveToastBtn6').click(function() {
+            const productTitle = '一件式潮Ｔ';
+            const productImage = '/06224428433-a1.jpg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast6'));
+            toast.show();
+        });
+
+        $('#liveToastBtn7').click(function() {
+            const productTitle = '羽絨外套';
+            const productImage = '/3.jpg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast7'));
+            toast.show();
+        });
+
+        $('#liveToastBtn8').click(function() {
+            const productTitle = '帽Ｔ';
+            const productImage = '/FFBF20C669256DC7B65E6FF618BC2D33.jpg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast8'));
+            toast.show();
+        });
+
+        $('#liveToastBtn9').click(function() {
+            const productTitle = '綠色大學Ｔ';
+            const productImage = '/497482A12E-SP-10688384.jpg';
+            addToCart(productTitle, productImage);
+            var toast = new bootstrap.Toast($('#liveToast9'));
+            toast.show();
+        });
+    });
+</script>
+
+<script>
+    let isDragging = false;
+    let initialX = null;
+    
+    function startDrag(event) {
+      isDragging = true;
+      initialX = event.clientX;
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseleave', endDrag);
+      document.addEventListener('mouseup', endDrag);
+    }
+    
+    function drag(event) {
+      if (!isDragging) return;
+      const scrollable = document.querySelector('.custom-card-container');
+      if (initialX !== null) {
+        const deltaX = event.clientX - initialX;
+        scrollable.scrollLeft -= deltaX;
+        initialX = event.clientX;
+      }
+    }
+    
+    function endDrag() {
+      isDragging = false;
+      initialX = null;
+      document.removeEventListener('mousemove', drag);
+      document.removeEventListener('mouseleave', endDrag);
+      document.removeEventListener('mouseup', endDrag);
+    }
 </script>
 </html>
