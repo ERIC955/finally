@@ -59,11 +59,33 @@
         width: 400px;
         height: 450px;
     }
-    .cartmodel{
-        display: none;
-        bottom: -1000px;
-        width: 600px;
-        height: 550px;
+    .cartmodel {
+    display: none;
+    bottom: -1000px;
+    width: 600px;
+    height: auto; /* 自動適應內容高度 */
+    overflow-y: auto; /* 確保內容多時可以滾動 */
+    }
+
+    .cart-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .cart-item img {
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .cart-item h5 {
+        margin-top: 10px;
+    }
+
+    .cart-item label, .cart-item input, .cart-item select {
+        margin-top: 10px;
     }
     .personImg{
         width: 200px;
@@ -105,6 +127,23 @@
         top: -1000px;
         width: 400px;
         height: 450px;
+    }
+    .order-details-modal {
+        display: none;
+        position: absolute;
+        z-index: 9999;
+        width: 600px;
+        height: auto;
+        background-color: white;
+        overflow-y: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -1000px;
+        transition: top 0.5s;
+    }
+
+    .order-details-modal.show {
+        top: 100px; /* 顯示時調整到可見位置 */
     }
 
 
@@ -172,6 +211,16 @@
         </div>
     </div>
 
+    <div class="order-details-modal" id="orderDetailsModal">
+        <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold"></i>
+        <div class="d-flex flex-column align-items-center mt-5 px-3"> 
+            <h4>訂單明細</h4>
+            <div id="order-details-container" class="w-100">
+                <!-- 訂單明細會在這裡動態顯示 -->
+            </div>
+        </div>
+    </div>
+
     <div class="loginmodal">
         <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
         <div class="d-flex justify-content-center mt-5">
@@ -216,16 +265,19 @@
 
     <div class="cartmodel">
         <i class="bi bi-x-lg fw-bold x d-flex justify-content-end fs-4 fw-bold "></i>
-        <div class="d-flex  justify-content-center mt-5 px-3"> 
-            <img class="colth" src="/P1690803315983_3_29599325.jpeg" alt="">
+        <div class="d-flex flex-column align-items-center mt-5 px-3"> 
+            <div id="cart-items-container" class="w-100">
+                <!-- 這裡會動態顯示購物車物品 -->
+            </div>
+            <div id="empty-cart-message" class="w-100 text-center">
+                <h5>購物車是空的</h5>
+            </div>
         </div>
-        <div class="d-flex justify-content-center mt-5 px-5">
-            <label for="name" class="text-nowrap fs-5 me-1">上衣</label>
-        </div>        
         <div class="d-flex justify-content-center mt-4  px-5">
-            <button type="button" class="btn btn-dark fs-5   mx-1" id="liveToastBtn">加入購物車</button>
+            <button type="button" class="btn btn-dark fs-5   mx-1" id="liveToastBtn">確認下單</button>
         </div>
     </div>
+    
 
     <div class="toast-container">
         <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
@@ -360,7 +412,7 @@
                 <div class="card-body">
                     <h5 class="card-title">超時髦藍T</h5>
                     <p class="card-text">各種尺寸 歡迎下單</p>
-                    <button class="btn btn-primary" id="liveToastBtn2">立即購買</button>
+                    <button class="btn btn-primary" id="liveToastBtn2">加入購物車</button>
                 </div>
             </div>
             <div class="card" style="width: 25rem;">
@@ -368,7 +420,7 @@
                 <div class="card-body">
                     <h5 class="card-title">CUSTOM T-shirt</h5>
                     <p class="card-text">over-size非常好看</p>
-                    <a href="#" class="btn btn-primary"id="liveToastBtn3">立即購買</a>
+                    <a href="#" class="btn btn-primary"id="liveToastBtn3">加入購物車</a>
                 </div>
             </div>
         </div>
@@ -428,7 +480,7 @@
                 <div class="card-body">
                     <h5 class="card-title">羽絨外套</h5>
                     <p class="card-text">超級保暖</p>
-                    <button class="btn btn-primary">立即購買</button>
+                    <button class="btn btn-primary">加入購物車</button>
                 </div>
             </div>
             <div class="card custom-card" style="width: 20rem;">
@@ -436,7 +488,7 @@
                 <div class="card-body">
                     <h5 class="card-title">綠色大學Ｔ</h5>
                     <p class="card-text">oversize 超好搭配</p>
-                    <button class="btn btn-primary">立即購買</button>
+                    <button class="btn btn-primary">加入購物車</button>
                 </div>
             </div>
 
@@ -445,7 +497,7 @@
                 <div class="card-body">
                     <h5 class="card-title">帽Ｔ</h5>
                     <p class="card-text">加大版 size齊全</p>
-                    <button class="btn btn-primary">立即購買</button>
+                    <button class="btn btn-primary">加入購物車</button>
                 </div>
             </div>
             <div class="card custom-card" style="width: 20rem;">
@@ -453,7 +505,7 @@
                 <div class="card-body">
                     <h5 class="card-title">超時髦藍T</h5>
                     <p class="card-text">各種尺寸 歡迎下單</p>
-                    <button class="btn btn-primary">立即購買</button>
+                    <button class="btn btn-primary">加入購物車</button>
                 </div>
             </div>
     
@@ -462,7 +514,7 @@
                 <div class="card-body">
                     <h5 class="card-title">運動素T</h5>
                     <p class="card-text">超會排汗 趕快下單</p>
-                    <button class="btn btn-primary">立即購買</button>
+                    <button class="btn btn-primary">加入購物車</button>
                 </div>
             </div>
     
@@ -471,7 +523,7 @@
                 <div class="card-body">
                     <h5 class="card-title">一件式潮Ｔ</h5>
                     <p class="card-text">假兩件 夏天不會熱 冬天不會冷</p>
-                    <button class="btn btn-primary">立即購買</button>
+                    <button class="btn btn-primary">加入購物車</button>
                 </div>
             </div>
         </div>
@@ -784,8 +836,8 @@
                 $("body").css("overflow-y", "auto");
                 $("#main").css("opacity", "1");
                 
-            var toast = new bootstrap.Toast($('#liveToast'))
-            toast.show()
+                showOrderDetails();
+
         })
         $('#liveToastBtn2').click(function() {
                 $(".searchmodal").css({
@@ -1084,6 +1136,111 @@
             }, 4000)
         })
 
+
+        $("#orderDetailsModal .x").click(function() {
+        $("#orderDetailsModal").removeClass("show").css("top", "-1000px");
+    });
+
+    $(document).ready(function(){
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+    var topPosition = (windowHeight - 500) / 2; // 調整這裡的高度來適應模態框
+
+
+
+    $('#liveToastBtn2').click(function() {
+        const productTitle = '超時髦藍T';
+        const productImage = '/images.jpeg';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn3').click(function() {
+        const productTitle = 'CUSTOM T-shirt';
+        const productImage = '/HideThePainHarold-CustomDesign-Mockup_2e627725-7d34-43d5-ac86-f5c66a684cf6.webp';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn4').click(function() {
+        const productTitle = '超時髦藍T';
+        const productImage = '/images.jpeg';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn5').click(function() {
+        const productTitle = '運動素T';
+        const productImage = '/55.jpeg';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn6').click(function() {
+        const productTitle = '一件式潮Ｔ';
+        const productImage = '/06224428433-a1.jpg';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn7').click(function() {
+        const productTitle = '羽絨外套';
+        const productImage = '/3.jpg';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn8').click(function() {
+        const productTitle = '帽Ｔ';
+        const productImage = '/FFBF20C669256DC7B65E6FF618BC2D33.jpg';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn9').click(function() {
+        const productTitle = '綠色大學Ｔ';
+        const productImage = '/497482A12E-SP-10688384.jpg';
+        addToCart(productTitle, productImage);
+    });
+
+    $('#liveToastBtn10').click(function() {
+        const productTitle = '其他商品'; // 替換為實際的商品名稱
+        const productImage = '/其他商品圖片路徑'; // 替換為實際的圖片路徑
+        addToCart(productTitle, productImage);
+    });
+
+    function showToast() {
+        const toast = new bootstrap.Toast($('#liveToast'), toastOptions);
+        toast.show();
+    }
+
+    $('#liveToastBtn').click(function() {
+      
+    });
+
+
+
+    function showOrderDetails() {
+        const orderDetailsContainer = $("#order-details-container");
+        orderDetailsContainer.empty();
+
+        cartItems.forEach((item, index) => {
+            const orderItemHTML = `
+                <div class="order-item border p-2">
+                    <img src="${item.image}" alt="${item.title}" style="width: 100px;">
+                    <h5>${item.title}</h5>
+                    <div>數量: <span>${$('#quantity-' + index).val()}</span></div>
+                    <div>尺寸: <span>${$('#size-' + index).val()}</span></div>
+                </div>
+            `;
+            orderDetailsContainer.append(orderItemHTML);
+        });
+
+        $(".order-details-modal").addClass("show");
+    }
+
+    $(".order-details-modal .x").click(function() {
+        $(".order-details-modal").removeClass("show").css("top", "-1000px");
+    });
+
+    $('#confirmOrder').click(function() {
+    });
+});
+
+
     })
 
     let cartItems = []; // 購物車商品列表
@@ -1093,98 +1250,71 @@
         const item = { title: productTitle, image: productImage };
         cartItems.push(item);
         updateCart();
+        showToast();
     }
+
+
+    function showToast() {
+        const toast = new bootstrap.Toast($('#liveToast'));
+        toast.show();
+    }
+
 
     // 更新購物車顯示
     function updateCart() {
-        const cartContainer = $(".cartmodel .d-flex.justify-content-center.mt-5.px-3");
+        const cartContainer = $("#cart-items-container");
+        const emptyCartMessage = $("#empty-cart-message");
         cartContainer.empty();
-        cartItems.forEach(item => {
-            const cartItemHTML = `
-                <div class="d-flex align-items-center mb-3">
-                    <img src="${item.image}" class="colth me-3" alt="${item.title}">
-                    <div>
+
+        if (cartItems.length === 0) {
+            emptyCartMessage.show();
+        } else {
+            emptyCartMessage.hide();
+            cartItems.forEach((item, index) => {
+                const cartItemHTML = `
+                    <div class="cart-item border p-2">
+                        <img src="${item.image}" alt="${item.title}">
                         <h5>${item.title}</h5>
+                        <div>
+                            <label for="quantity-${index}">數量</label>
+                            <input type="number" id="quantity-${index}" value="1" min="1" style="width: 60px;">
+                        </div>
+                        <div>
+                            <label for="size-${index}">尺寸</label>
+                            <select id="size-${index}" style="width: 100px;">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                        </div>
                     </div>
+                `;
+                cartContainer.append(cartItemHTML);
+            });
+        }
+    }
+    function showOrderDetails() {
+        const orderDetailsContainer = $("#order-details-container");
+        orderDetailsContainer.empty();
+
+        cartItems.forEach((item, index) => {
+            const orderItemHTML = `
+                <div class="order-item border p-2">
+                    <img src="${item.image}" alt="${item.title}" style="width: 100px;">
+                    <h5>${item.title}</h5>
+                    <div>數量: <span>${$('#quantity-' + index).val()}</span></div>
+                    <div>尺寸: <span>${$('#size-' + index).val()}</span></div>
                 </div>
             `;
-            cartContainer.append(cartItemHTML);
+            orderDetailsContainer.append(orderItemHTML);
         });
+
+        $("#orderDetailsModal").addClass("show");
     }
 
-    $(document).ready(function(){
-        $('#liveToastBtn').click(function() {
-            const productTitle = '上衣';
-            const productImage = '/P1690803315983_3_29599325.jpeg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast'));
-            toast.show();
-        });
 
-        $('#liveToastBtn2').click(function() {
-            const productTitle = '超時髦藍T';
-            const productImage = '/images.jpeg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast2'));
-            toast.show();
-        });
 
-        $('#liveToastBtn3').click(function() {
-            const productTitle = 'CUSTOM T-shirt';
-            const productImage = '/HideThePainHarold-CustomDesign-Mockup_2e627725-7d34-43d5-ac86-f5c66a684cf6.webp';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast3'));
-            toast.show();
-        });
-
-        $('#liveToastBtn4').click(function() {
-            const productTitle = '超時髦藍T';
-            const productImage = '/images.jpeg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast4'));
-            toast.show();
-        });
-
-        $('#liveToastBtn5').click(function() {
-            const productTitle = '運動素T';
-            const productImage = '/55.jpeg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast5'));
-            toast.show();
-        });
-
-        $('#liveToastBtn6').click(function() {
-            const productTitle = '一件式潮Ｔ';
-            const productImage = '/06224428433-a1.jpg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast6'));
-            toast.show();
-        });
-
-        $('#liveToastBtn7').click(function() {
-            const productTitle = '羽絨外套';
-            const productImage = '/3.jpg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast7'));
-            toast.show();
-        });
-
-        $('#liveToastBtn8').click(function() {
-            const productTitle = '帽Ｔ';
-            const productImage = '/FFBF20C669256DC7B65E6FF618BC2D33.jpg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast8'));
-            toast.show();
-        });
-
-        $('#liveToastBtn9').click(function() {
-            const productTitle = '綠色大學Ｔ';
-            const productImage = '/497482A12E-SP-10688384.jpg';
-            addToCart(productTitle, productImage);
-            var toast = new bootstrap.Toast($('#liveToast9'));
-            toast.show();
-        });
-    });
 </script>
 
 <script>
